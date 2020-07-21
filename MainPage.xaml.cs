@@ -144,7 +144,7 @@ namespace CatanLogSpy
                     //  Debug.WriteLine($"message received: {message}");
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        Messages.Add(message);
+                        Messages.Insert(0, message);
                     });
                 });
 
@@ -152,14 +152,14 @@ namespace CatanLogSpy
                 {
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        Messages.Add(message);
+                        Messages.Insert(0, message);
                     });
                 });
                 HubConnection.On("OnAck", async (CatanMessage message) =>
                 {
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        Messages.Add(message);
+                        Messages.Insert(0, message);
                     });
                 });
 
@@ -169,7 +169,7 @@ namespace CatanLogSpy
                     {
                         var message = CreateGameModel.CreateMessage(gameInfo);
                         message.From = by;
-                        Messages.Add(message);
+                        Messages.Insert(0, message);
                     });
                 });
                 HubConnection.On("DeleteGame", async (Guid id, string by) =>
@@ -213,7 +213,7 @@ namespace CatanLogSpy
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
                         Messages.Clear();
-                        Messages.AddRange(messages);
+                        AddMessages(messages);
                     });
                 });
 
@@ -224,6 +224,13 @@ namespace CatanLogSpy
             }
         }
 
+        private void AddMessages(List<CatanMessage> messages)
+        {
+            foreach (var message in messages)
+            {
+                Messages.Insert(0, message);
+            }
+        }
         private static void SelectedGameChanged (DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var depPropClass = d as MainPage;
