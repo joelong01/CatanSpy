@@ -14,8 +14,8 @@
   <mp:PhoneIdentity PhoneProductId="d7e2a72c-0cc0-4cef-b31a-450637eb37f4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>CatanLogSpy</DisplayName>
-    <PublisherDisplayName>joelo</PublisherDisplayName>
+    <DisplayName>Catan Spy</DisplayName>
+    <PublisherDisplayName>LongShot Software LLC</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,10 +32,10 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="CatanLogSpy.App">
       <uap:VisualElements
-        DisplayName="CatanLogSpy"
+        DisplayName="Catan Spy"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="CatanLogSpy"
+        Description="A Spy app for Catan.  see http://www.github.com/joelong01/CatanSpy"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
