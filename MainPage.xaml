@@ -8,7 +8,7 @@
     RequestedTheme="Dark"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-     <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
@@ -28,10 +28,13 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Content="Refresh" Click="OnRefresh" VerticalAlignment="Center" Margin="0,-15,0,0"/>
+            <Button Margin="0,-15,0,0" VerticalAlignment="Center" Content="Refresh" Click="OnRefresh" />
+            <Button Margin="10,-15,0,0" VerticalAlignment="Center" Content="Open Log" Click="OnOpenLogFile" />
+            <Button Margin="10,-15,0,0" VerticalAlignment="Center" Content="Resend" Click="OnResend" />
         </StackPanel>
-        <controls:DataGrid Grid.Row="1" Margin="000" HorizontalAlignment="Stretch" BorderBrush="Gray" BorderThickness="1"
-            VerticalAlignment="Stretch" Background="Gray"
+        <controls:DataGrid Grid.Row="1" Margin="000" HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" BorderBrush="Gray" BorderThickness="1"
+            Background="Gray"
             ItemsSource="{x:Bind Messages, Mode=OneWay}"
             SelectionChanged="OnSelectionChanged" AutoGenerateColumns="True"
             IsReadOnly="True" SelectionMode="Single"
